@@ -367,7 +367,7 @@ export function HeroSplitImageExample() {
         }
         description="We provide strategic advisory, risk management, and claims consultancy services that give you clarity, control, and confidence—from project inception to completion."
         buttons={[
-          { text: 'Explore Projects', href: '/projects', variant: 'primary' },
+          { text: 'Explore Projects', href: '/services', variant: 'primary' },
           { text: 'Get in touch', href: '/contact', variant: 'secondary' },
         ]}
         backgroundColor="#0A1236"
@@ -378,7 +378,7 @@ export function HeroSplitImageExample() {
           card: {
             icon: '',
             text: 'See our Solutions for Every Stage of Your Project',
-            href: '/solutions',
+            href: '/services',
           },
         }}
       />

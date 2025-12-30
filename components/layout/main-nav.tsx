@@ -21,11 +21,11 @@ export default function NavbarScrollWithLogo() {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Projects', href: '/projects' },
+    // { name: 'Projects', href: '/projects' },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = () => {  
       setScrolled(window.scrollY > 20);
     };
 
