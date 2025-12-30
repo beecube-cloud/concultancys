@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
+import {ShieldAlert, ConstructionIcon, CalendarCheck, Ban, ChartCandlestickIcon, ChartArea} from 'lucide-react'
+import Link from "next/link";
+
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -8,46 +11,68 @@ const ServicesSection = () => {
 
   const services = [
     {
-      icon: "/icons/building.png",
-      title: "Independent Technical Opinions",
-      description: "on defects, delays, cost overruns, and contract compliance",
-      color: "bg-primary",
-    },
-    {
-      icon: "/icons/energy.png",
-      title: "Forensic Investigation & Analysis",
+      icon: ShieldAlert,
+      title: "Project Advisory Services",
       description:
-        "including document review, site inspections, delay analysis, and quantum assessment",
+        "strategic guidance across planning, procurement, contracts, risk, cost and performance.",
       color: "bg-primary",
+      slug: "project-advisory",
     },
     {
-      icon: "/icons/microservices.png",
-      title: "Expert Reports",
-      description: "that are clear, evidence-based, and compliant with legal and arbitration requirements.",
-      color: "bg-primary",
-    },
-    {
-      icon: "/icons/design.png",
-      title: "Testimony & Hearing Support",
-      description: "with credible, easy-to-understand explanations and defence under cross-examination.",
-      color: "bg-primary",
-    },
-    {
-      icon: "/icons/c-r-m-services.png",
-      title: "Legal Team Support",
+      icon: ConstructionIcon,
+      title: "Construction Claims Consultancy",
       description:
-        "including strategy input, review of opposing reports, and participation in expert meetings or mediation.",
+        "identification, preparation and assessment of claims related to time, cost and scope.",
       color: "bg-primary",
+      slug: "construction-claims",
     },
     {
-      icon: "/icons/settings.png",
-      title: "Specialist Services",
+      icon: CalendarCheck,
+      title: "Project Planning & Scheduling",
       description:
-        "seismic assessments, structural repairs, wastewater and energy consultancy.",
+        "development and review of programmes, critical path analysis and progress monitoring.",
       color: "bg-primary",
+      slug: "project-planning-scheduling",
     },
+    {
+      icon: Ban,
+      title: "Project Risk Management",
+      description:
+        "risk identification, assessment and mitigation strategies throughout the project lifecycle.",
+      color: "bg-primary",
+      slug: "project-risk-management",
+    },
+    {
+      icon:ChartCandlestickIcon,
+      title: "Value Engineering",
+      description:
+        "systematic evaluation of design and construction options to maximise value and efficiency.",
+      color: "bg-primary",
+      slug: "value-engineering",
+    },
+    {
+      icon:ChartArea,
+      title: "Expert Witness & Litigation Support",
+      description:
+        "independent technical opinions, forensic analysis and expert testimony support.",
+      color: "bg-primary",
+      slug: "expert-witness",
+    },
+    {
+      icon: ChartArea,
+      title: "Construction Management",
+      description: 'End-to-end planning, coordination, and control of construction projects.',
+      color: 'bg-primary',
+      slug: 'construction-management'
+    },
+    {
+      icon: ChartArea,
+      title: "Infrastructure Design",
+      description: 'Strategic, sustainable, and technically robust infrastructure design solutions',
+      color: 'bg-primary',
+      slug: 'infrastructure-design'
+    }
   ];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -81,7 +106,7 @@ const ServicesSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2
-            className={`text-3xl sm:text-4xl lg:text-5xl text-primary mb-3 sm:mb-4 transition-all duration-1000 ${
+            className={`text-3xl sm:text-4xl lg:text-5xl text-primary-900 mb-3 sm:mb-4 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 transform translate-y-0"
                 : "opacity-0 transform translate-y-8"
@@ -107,7 +132,10 @@ const ServicesSection = () => {
           {services.map((service, index) => {
             const isItemVisible = visibleItems.includes(index);
 
+
             return (
+              <Link href={`/services/${service.slug}`} className="block" key={index}>
+
               <div
                 key={index}
                 className={`bg-white rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-500 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 group cursor-pointer ${
@@ -122,11 +150,7 @@ const ServicesSection = () => {
                 <div
                   className={`${service.color} w-16 h-16 sm:w-20 sm:h-20 lg:w-[104px] lg:h-[104px] inline-flex justify-center items-center p-3 sm:p-4 rounded-xl shrink-0 group-hover:scale-105 sm:group-hover:scale-110 group-hover:rotate-1 sm:group-hover:rotate-3 transition-transform duration-300 mx-auto sm:mx-0`}
                 >
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 group-hover:scale-105 sm:group-hover:scale-110 transition-transform duration-300"
-                  />
+                                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 group-hover:scale-105 sm:group-hover:scale-110 transition-transform duration-300 text-white" />
                 </div>
                 <div className="overflow-hidden text-center sm:text-left flex-1">
                   <h3 className="text-lg sm:text-xl lg:text-xl font-semibold text-primary-900 mb-1 sm:mb-1 group-hover:text-red-600 transition-colors duration-300 leading-tight">
@@ -137,6 +161,8 @@ const ServicesSection = () => {
                   </p>
                 </div>
               </div>
+              </Link>
+
             );
           })}
         </div>
