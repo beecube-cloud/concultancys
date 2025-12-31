@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useScrollParallax } from '@/hooks/useScrollParallx';
 import { HeroSectionProps, ParallaxImage, HeroButtonProps } from '@/lib/types';
 import { divisionButtons } from '@/lib/const';
+import heroImage from '@/assets/hero/dot.svg';
 
 
 export function HeroSection({
@@ -304,10 +305,10 @@ export function HeroSliderExample() {
   return (
     <HeroSection
       variant="slider"
-      brandLabel="Esthoj Construction & Facility Management"
-      brandIcon="/assets/hero/dot.svg"
-      heading="Shaping Infrastructure. Strengthening Communities."
-      description="Engineering Construction & Facility Management has translated client visions into durable, sustainable infrastructure, from commercial and residential developments to roads, energy and facility services."
+      brandLabel="Esthoj Consulting"
+      brandIcon="/hero/dot.svg"
+      heading="Transforming Projects. Delivering Solutions."
+      description="Esthoj Consulting provides expert advisory services that help clients navigate complex construction and infrastructure challenges. From project planning and risk management to claims consultancy and expert witness support, we deliver strategic insights that drive successful project outcomes."
       buttons={divisionButtons}
       backgroundColor="#1A1F4E"
       backgroundImages={[
