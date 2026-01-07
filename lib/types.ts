@@ -127,4 +127,4 @@ export interface HeroButton {
   export interface ExtendedHeroSectionProps extends HeroSectionProps {
     variant?: 'single-image' | 'parallax' | 'video' | 'slider';
     sideImage?: SideImageConfig;
-  }
+  } 
